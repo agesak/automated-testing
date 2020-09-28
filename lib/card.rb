@@ -5,19 +5,19 @@ class Card
   attr_reader :value, :suit
 
   def initialize(value, suit)
+    validate_card(value, suit.to_sym)
     @value = value
     @suit = suit
-    validate_card
   end
 
-  def validate_card
-    valid_values = (1..13).to_a
-    valid_suits = [:hearts, :spades, :clubs, :diamonds]
+def validate_card(value, suit)
+  valid_values = (1..13).to_a
+  valid_suits = [:hearts, :spades, :clubs, :diamonds]
 
-    if !(valid_values.include?(@value)) || (valid_suits.include?(@value))
-      raise ArgumentError.new("Not a valid card")
-    end
+  if (!valid_values.include?(value)) || (!valid_suits.include?(suit))
+    raise ArgumentError.new("Not a valid card")
   end
+end
 
   def to_s
     #  1: Ace
