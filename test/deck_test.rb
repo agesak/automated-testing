@@ -19,4 +19,17 @@ describe Deck do
     end
   end
 
+  describe "draw method" do
+    it "returns removed card" do
+      card = Card.new(2, :diamonds)
+      returned_card = Deck.new.draw(card)
+      expect(card.value).must_equal returned_card.value
+      expect(card.suit).must_equal returned_card.suit
+    end
+
+    xit "removes card from the deck" do
+
+    end
+  end
+
 end

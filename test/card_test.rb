@@ -8,6 +8,8 @@ describe Card do
         (1..13).each do |value|
           card = Card.new(value, suit)
           expect(card).must_be_instance_of Card
+          expect(card.value).must_be_instance_of Integer
+          expect(card.suit).must_be_instance_of Symbol
         end
       end
     end

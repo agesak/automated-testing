@@ -5,7 +5,6 @@ class Deck
   attr_reader :cards
 
   def initialize
-    # this should be a list of Card instances
     @cards = []
     [:hearts, :spades, :clubs, :diamonds].each do |suit|
       (1..13).each do |value|
@@ -14,8 +13,8 @@ class Deck
     end
   end
 
-  def draw
-    # returns a card
+  def draw(card)
+    return @cards.select{|i| i.value == card.value && i.suit == card.suit }[0]
   end
 
   def shuffle
