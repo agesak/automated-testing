@@ -21,14 +21,20 @@ describe Deck do
 
   describe "draw method" do
     it "returns removed card" do
-      card = Card.new(2, :diamonds)
-      returned_card = Deck.new.draw(card)
-      expect(card.value).must_equal returned_card.value
-      expect(card.suit).must_equal returned_card.suit
+      card = Deck.new.draw
+      expect(card).must_be_instance_of Card
     end
+  end
 
-    xit "removes card from the deck" do
+  describe "shuffle" do
+    it "responds to shuffle" do
+      expect(Deck.new.shuffle).must_respond_to :shuffle
+    end
+  end
 
+  describe "count" do
+    it "counts cards in deck" do
+      expect(Deck.new.count).must_equal 52
     end
   end
 

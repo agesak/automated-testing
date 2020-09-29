@@ -13,11 +13,15 @@ class Deck
     end
   end
 
-  def draw(card)
-    return @cards.select{|i| i.value == card.value && i.suit == card.suit }[0]
+  def draw
+    return @cards.pop
   end
 
   def shuffle
-    # shuffles the deck
+    return @cards.shuffle
+  end
+
+  def count
+    return @cards.length
   end
 end
